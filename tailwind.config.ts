@@ -11,7 +11,18 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        darkCoffee: "var(--dark-coffee)",
+        lightCoffee: "var(--light-coffee)",
+        darkCream: "var(--dark-cream)",
+        lightCream: "var(--light-cream)",
+        mainBg: "var(--main-bg)",
       },
+      fontFamily: {
+        'mono-regular': ['var(--font-roboto-regular)'],
+      },
+      boxShadow: {
+        '3xl': '0 0px 10px 0 rgb(0 0 0 / 0.05)',
+      }
     },
   },
   plugins: [],

@@ -1,0 +1,21 @@
+.header-container{
+  .ul-list{
+		li{
+			a{
+				svg{
+					width: 22px;
+					height: auto;
+					color: var(--light-coffee);
+				}
+			}
+		}
+		.active{
+			background: var(--light-cream);
+			a{
+				svg{
+					color: var(--dark-coffee);
+				}
+			}
+		}
+	}
+}
