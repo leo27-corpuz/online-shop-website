@@ -21,6 +21,7 @@ const config: Config = {
       },
       fontFamily: {
         'mono-regular': ['var(--font-roboto-regular)'],
+        'mono-regular-semibold': ['var(--font-roboto-regular-semibild)'],
       },
       boxShadow: {
         '3xl': '0 0px 10px 0 rgb(0 0 0 / 0.05)',

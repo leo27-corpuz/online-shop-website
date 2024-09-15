@@ -3,6 +3,6 @@ interface Logo {
 	alt: string
 }
 export const WebsiteLogo: Logo = {
-    url: 'https://logos-world.net/wp-content/uploads/2020/03/Amazon-Kindle-logo.png',
+    url: 'https://static.vecteezy.com/system/resources/previews/019/766/240/non_2x/amazon-logo-amazon-icon-transparent-free-png.png',
     alt: 'amazon'
 }
