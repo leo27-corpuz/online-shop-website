@@ -1,7 +1,7 @@
 'use client'
 import type { Metadata } from "next";
 import "./globals.css";
-import { robotoRegular } from '../fonts/font'
+import { robotoRegular, robotoRegularSemibold } from '../fonts/font'
 import Header from "@/components/Headers/header";
 import NextTopLoader from 'nextjs-toploader';
 
@@ -11,8 +11,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${robotoRegular.variable}`}>
-      <body className='antialiased bg-mainBg'>
+    <html lang="en" className={`${robotoRegular.variable, robotoRegularSemibold.variable}`}>
+      <body className='antialiased bg-background'>
         <NextTopLoader
           color="var(--dark-coffee)"
           initialPosition={0.08}
@@ -28,10 +28,8 @@ export default function RootLayout({
           zIndex={1600}
           showAtBottom={false}
         />
-        <div className="main-container container mx-auto px-4">
-          {children}
-          <Header Responsiveness={'mobile'} />
-        </div>
+        <Header/>
+        {children}
       </body>
     </html>
   );

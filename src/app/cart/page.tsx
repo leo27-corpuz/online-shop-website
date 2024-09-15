@@ -1,8 +1,9 @@
-
-const Cart = () => {
+'use client'
+import React from "react"
+const Cart: React.FC = () => {
     return(
         <>
-				  <section className="w-full">Cart</section>
+          <section className="w-full container mx-auto px-4">Cart</section>
         </>
     ) 
 }

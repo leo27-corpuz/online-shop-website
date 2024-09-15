@@ -16,12 +16,18 @@ const config: Config = {
         darkCream: "var(--dark-cream)",
         lightCream: "var(--light-cream)",
         mainBg: "var(--main-bg)",
+        iconColors: "var(--icon-colors)",
+        textColorInput: "var(--text-color-input)"
       },
       fontFamily: {
         'mono-regular': ['var(--font-roboto-regular)'],
+        'mono-regular-semibold': ['var(--font-roboto-regular-semibild)'],
       },
       boxShadow: {
         '3xl': '0 0px 10px 0 rgb(0 0 0 / 0.05)',
+      },
+      translate: {
+        'negative-50': '-50%',
       }
     },
   },

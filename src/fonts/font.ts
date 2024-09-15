@@ -7,5 +7,13 @@ const robotoRegular = Roboto({
     display: 'swap',
     variable: '--font-roboto-regular',
 })
+const robotoRegularSemibold = Roboto({
+    weight: '700',
+    style: ['normal'],
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-roboto-regular-semibild',
+})
 
-export { robotoRegular }
+
+export { robotoRegular, robotoRegularSemibold }
