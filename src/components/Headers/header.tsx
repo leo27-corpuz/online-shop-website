@@ -112,7 +112,7 @@ const Header: React.FC = (props) => {
 							</li>
 						</ul>
 						<div className={`burger-icon-container mt-[2px]`}>
-							<div className="burger z-[100] relative cursor-pointer xl:hidden" onClick={menuToggle}>
+							<div className="burger z-[100] relative cursor-pointer lg:hidden" onClick={menuToggle}>
 								<div className={`line w-[1.7rem] h-[2px] relative bg-iconColors mb-[3px] rounded-md transition-all duration-500 ease-in-out ${menuStatus ? 'rotate-[225deg] top-[5px]' : 'rotate-[0deg] top-[0px]'} lg:w-[2.2em] md:duration-1000 lg:mb-[5px]`}>
 								</div>
 								<div className={`line w-[1.7rem] h-[2px] relative bg-iconColors mb-[3px] rounded-md transition-all duration-500 ease-in-out ${menuStatus ? 'rotate-[-45deg] top-[-1px] lg:top-[-3px]' : 'rotate-[0deg] top-[0px]'} lg:w-[2.2em] md:duration-1000 lg:mb-[5px]`}>
