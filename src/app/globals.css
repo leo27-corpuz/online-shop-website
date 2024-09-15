@@ -10,6 +10,8 @@
   --dark-cream: #E0CDB6;
   --light-cream: #FFF5D1;
   --main-bg: rgba(249,249,247);
+  --icon-colors: #434343;
+  --text-color-input: #a1a1aa;
 }
 
 body {

@@ -12,7 +12,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${robotoRegular.variable}`}>
-      <body className='antialiased bg-mainBg'>
+      <body className='antialiased bg-background'>
         <NextTopLoader
           color="var(--dark-coffee)"
           initialPosition={0.08}
@@ -28,10 +28,8 @@ export default function RootLayout({
           zIndex={1600}
           showAtBottom={false}
         />
-        <div className="main-container container mx-auto px-4">
-          {children}
-          <Header Responsiveness={'mobile'} />
-        </div>
+        <Header/>
+        {children}
       </body>
     </html>
   );
