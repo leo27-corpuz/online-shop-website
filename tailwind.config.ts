@@ -17,10 +17,11 @@ const config: Config = {
         lightCream: "var(--light-cream)",
         mainBg: "var(--main-bg)",
         iconColors: "var(--icon-colors)",
-        textColorInput: "var(--text-color-input)"
+        textColorInput: "var(--text-color-input)",
+        primaryGrayColor: "var(--primary-gray-color)"
       },
       fontFamily: {
-        'mono-regular': ['var(--font-roboto-regular)'],
+        'regular-font': ['var(--regular-font)'],
         'mono-regular-semibold': ['var(--font-roboto-regular-semibild)'],
       },
       boxShadow: {
@@ -32,6 +33,7 @@ const config: Config = {
         'negative-50': '-50%',
       },
       zIndex: {
+        '1000': '1000',
         '100': '100',
         '99': '99',
       }

@@ -12,6 +12,7 @@
   --main-bg: rgba(249,249,247);
   --icon-colors: #434343;
   --text-color-input: #a1a1aa;
+  --primary-gray-color: #d2d2d6;
 }
 
 body {
@@ -24,4 +25,7 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+.text-shadow-default{
+  text-shadow: 2px 2px 8px var(--text-color-input);
 }
