@@ -21,7 +21,6 @@ interface props {
   carouselData?: CarouselInterface[],
 }
 const CarouselBanner: React.FC<props> = ({carouselData = []}) => {
-  console.log(carouselData)
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -84,9 +83,7 @@ const CarouselBanner: React.FC<props> = ({carouselData = []}) => {
     )
 }
 
-const CustomDot: React.FC = (props: any): JSX.Element => {
-  const onClick = props.onClick;
-  const { active } = props;
+const CustomDot: React.FC = ({active, onClick}: any) => {
   return(
     <>
       <button onClick={() => onClick()} className={`${active ? "active-circle" : "inactive-circle"} circles`}></button>
