@@ -24,7 +24,7 @@ const ClientComponent: React.FC<PropsClient> = ({headersData}) => {
             showAtBottom={false}
             />
             <Header />
-            <main className="mt-20">
+            <main className="mt-20 lg:mt-28">
             	{headersData }
             </main>
         </>
