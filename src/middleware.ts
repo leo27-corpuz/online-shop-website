@@ -2,10 +2,14 @@ import { NextRequest, NextResponse } from 'next/server'
  
 export function middleware(request: NextRequest) {
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
-  const cspImages = [
-    'https://static.vecteezy.com/'
-  ]
-  console.log(cspImages)
+  const cspImages = `
+    https://placeholderlogo.com/
+    https://valuesdriven.com/ 
+    https://img.freepik.com/ 
+    https://static.vecteezy.com/ 
+    https://png.pngtree.com/
+  `
+  // console.log(cspImages)
   const cspHeader = `
     default-src 'self';
     script-src 'self' 'unsafe-eval' 'unsafe-inline';

@@ -1,0 +1,72 @@
+
+.carousel-container{
+	@apply h-auto relative lg:rounded-t-3xl lg:rounded-b-3xl;
+	.banner-list{
+		@apply h-60 overflow-hidden;
+		@media (min-width: 540px){
+			@apply h-72;
+		}
+		@media (min-width: 640px){
+			@apply h-96;
+		}
+		@media (min-width: 992px){
+			@apply h-[28rem];
+		}
+		@media (min-width: 1024px){
+			@apply h-[32rem];
+		}
+		@media (min-width: 1280px){
+			@apply h-[36rem];
+		}
+		@media (min-width: 1536px){
+			@apply h-[42rem];
+		}
+		.banner-background-image{
+			.banner-image{
+				@apply h-60 w-full object-cover;
+				@media (min-width: 540px){
+					@apply h-72;
+				}
+				@media (min-width: 640px){
+					@apply h-96;
+				}
+				@media (min-width: 992px){
+					@apply h-[28rem];
+				}
+				@media (min-width: 1024px){
+					@apply h-[32rem];
+				}
+				@media (min-width: 1280px){
+					@apply h-[36rem];
+				}
+				@media (min-width: 1536px){
+					@apply h-[42rem];
+				}
+			}
+		}
+	}
+	.content-container{
+		@apply fixed z-50 left-1/2 top-1/2 translate-x-negative-50 translate-y-negative-50 w-full px-4 sm:w-[90%] md:w-[85%] lg:w-[80%] 2xl:w-[80%];
+	}
+	.react-multi-carousel-dot-list{
+		@apply flex bottom-0 px-0;
+		.circles{
+			@apply bg-primaryGrayColor w-full h-1 lg:h-2;
+		}
+		.active-circle{
+			@apply relative;
+			&::after{
+				@apply absolute content-[''] left-0 top-0 h-1 lg:h-2 w-full bg-textColorInput;
+				animation: noneToActive 6s ease;
+			}
+		}
+	}
+}
+@keyframes noneToActive {
+	0%{
+		@apply w-0;
+	}			
+	100%{
+		@apply w-full;
+	}
+}

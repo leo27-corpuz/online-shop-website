@@ -49,10 +49,9 @@ const Header: React.FC = (props) => {
 	const leaveTooltipe = () => {
 		setToolTip('')
 	}
-
   return(
 		<>
-			<header className="header-container w-full py-2 px-4 fixed top-0 bg-white">
+			<header className="header-container w-full py-2 px-4 fixed top-0 bg-white z-1000">
 				<div className="container w-full mx-auto flex justify-between items-center relative">
 					<div className="logo">
 							<Link href="/"><img className="w-auto h-12 object-cover md:w-40 md:h-18" src={WebsiteLogo.url} alt={WebsiteLogo.alt} /></Link>
@@ -71,7 +70,7 @@ const Header: React.FC = (props) => {
 								<div>
 									<FeatherIcon icon='search' className="text-textColorInput w-[1.4rem]"/>
 								</div>
-								<input type="text" placeholder="search" value={search} className="w-full bg-transparent outline-none text-base font-mono-regular text-textColorInput" onChange={inputSearch}/>
+								<input type="text" placeholder="Search" value={search} className="w-full bg-transparent outline-none text-base font-mono-regular text-textColorInput" onChange={inputSearch}/>
 								<div onClick={clearInputSearch} className={`${search ? 'block' : 'hidden'}`}>
 									<FeatherIcon icon='x' className="text-iconColors w-[1.2rem] text-darkCoffee cursor-pointer"/>
 								</div>
