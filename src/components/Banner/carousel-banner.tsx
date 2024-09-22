@@ -6,6 +6,7 @@ import Link from 'next/link'
 import '../../styles/banner.scss'
 import FeatherIcon from 'feather-icons-react';
 import { robotoRegular, robotoRegularBold } from "@/fonts/font";
+import CarouselButton from "@/components/Button/carouselButton";
 interface urlInterface{
 	link: string,
 	title: string
@@ -21,7 +22,6 @@ interface props {
   carouselData?: CarouselInterface[],
 }
 const CarouselBanner: React.FC<props> = ({carouselData = []}) => {
-  console.log(carouselData)
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -44,8 +44,8 @@ const CarouselBanner: React.FC<props> = ({carouselData = []}) => {
     return(
         <>
           <Carousel
-           swipeable={false}
-           draggable={false}
+           swipeable={true}
+           draggable={true}
            showDots={true}
            responsive={responsive}
            infinite={true}
@@ -55,6 +55,7 @@ const CarouselBanner: React.FC<props> = ({carouselData = []}) => {
            transitionDuration={0}
            arrows={false}
            customDot={<CustomDot />}
+           customButtonGroup={<ButtonGroup />}
            containerClass="carousel-container z-0"
            dotListClass="custom-dot-list-style"
            itemClass="carousel-item-padding-40-px"
@@ -66,7 +67,7 @@ const CarouselBanner: React.FC<props> = ({carouselData = []}) => {
                       </div>
                       <div className="content-container">
                         <div className="title-container">
-                          <h1 className={`text-center text-2xl text-white leading-8 tracking-wider text-shadow-default sm:leading-snug md:leading-none lg:leading-[1.1] sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl ${robotoRegularBold.className}`}>{data.title}</h1>
+                          <h1 className={`text-center text-2xl text-white leading-8 tracking-wider text-shadow-default pointer-events-none sm:leading-snug md:leading-none lg:leading-[1.1] sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl ${robotoRegularBold.className}`}>{data.title}</h1>
                         </div>
                         <div className="button-container mt-6 ml-auto mr-auto text-center sm:mt-8 lg:mt-12">
                           <Link href={data.url.link}>
@@ -84,13 +85,19 @@ const CarouselBanner: React.FC<props> = ({carouselData = []}) => {
     )
 }
 
-const CustomDot: React.FC = (props: any): JSX.Element => {
-  const onClick = props.onClick;
-  const { active } = props;
+const CustomDot: React.FC = ({active, onClick}: any) => {
   return(
     <>
       <button onClick={() => onClick()} className={`${active ? "active-circle" : "inactive-circle"} circles`}></button>
     </>
   )
 }
+const ButtonGroup = (props: any) => {
+  const { next, previous } = props;
+  return (
+    <div className="carousel-button-group absolute z-50 top-4 right-4 lg:right-6 lg:top-6 "> 
+     <CarouselButton next={next} previous={previous}/>
+    </div>
+  );
+};
 export default CarouselBanner;

@@ -18,7 +18,8 @@ const config: Config = {
         mainBg: "var(--main-bg)",
         iconColors: "var(--icon-colors)",
         textColorInput: "var(--text-color-input)",
-        primaryGrayColor: "var(--primary-gray-color)"
+        primaryGrayColor: "var(--primary-gray-color)",
+        primaryTextColor: "var(--primary-text-color)"
       },
       fontFamily: {
         'regular-font': ['var(--regular-font)'],

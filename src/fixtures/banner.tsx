@@ -40,4 +40,12 @@ export const Banner: BannerType[] = [
 			title: 'Shop Now'
 		},
 	},
+	{
+		image: 'https://i.ytimg.com/vi/otEkXC9oPkI/maxresdefault.jpg',
+		title: 'Level up your style with our summer colllections',
+		url: {
+			link: '/shop-tshirts',
+			title: 'Shop Now'
+		},
+	},
 ]
