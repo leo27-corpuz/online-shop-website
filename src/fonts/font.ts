@@ -1,6 +1,6 @@
 import { Roboto } from 'next/font/google'
 const robotoRegular = Roboto({
-    weight: '100',
+    weight: '400',
     style: ['normal'],
     subsets: ['latin'],
     display: 'swap',

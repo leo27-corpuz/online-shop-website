@@ -121,7 +121,7 @@ const Header: React.FC = (props) => {
 						</div>
 					</div>
 				</div>
-				<div className="mobile-navigation-container fixed bottom-0 left-0 shadow-5x1 rounded-l-3xl rounded-r-3xl w-full py-2 px-4 z-99 sm:hidden">
+				<div className="mobile-navigation-container bg-white fixed bottom-0 left-0 shadow-5x1 rounded-l-3xl rounded-r-3xl w-full py-2 px-4 z-99 sm:hidden">
 					<ul className="icons-url-container flex align-center justify-between gap-3 md:gap-4 w-full relative">
 						<li className={`${pathname == '/' && 'relative top-[-1.5rem] bg-lightCream text-darkCoffee'} rounded-full relative p-3 top-0 transition-all duration-500 ease-in-out`}>
 							<Link href="/">

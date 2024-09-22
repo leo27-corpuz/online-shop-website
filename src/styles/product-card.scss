@@ -1,0 +1,21 @@
+.card-container{
+	@apply border-none overflow-hidden;
+	.container-image{
+		@apply h-[70%] overflow-hidden rounded-lg;
+		.image{
+			@apply h-full object-cover w-full;
+		}
+	}
+	.details-container{
+		@apply h-[30%] mt-6;
+		.descriptions{
+			@apply mb-2;
+		}
+		.actions{
+			@apply w-full flex justify-between items-center;
+			.add-to-cart-button{
+				@apply bg-lightCream px-3 py-2 rounded-lg;
+			}
+		}
+	}
+}
