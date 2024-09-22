@@ -8,6 +8,7 @@ export function middleware(request: NextRequest) {
     https://img.freepik.com/ 
     https://static.vecteezy.com/ 
     https://png.pngtree.com/
+    https://i.ytimg.com/
   `
   // console.log(cspImages)
   const cspHeader = `

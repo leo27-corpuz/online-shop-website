@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation'
 import '../../styles/header.scss'
 import React, { useEffect, useState, useRef, FC } from 'react';
 import { WebsiteLogo } from '@/fixtures/logo';
-import Tooltip from '../Tooltip/tooltip';
+import Tooltip from '@/components/Tooltip/tooltip';
 const Header: React.FC = (props) => {
 	const pathname = `/${usePathname().split('/')[1]}`
 	// search open and close
