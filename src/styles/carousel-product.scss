@@ -1,11 +1,7 @@
-.top-brands-container{
-	.container{
-		.react-multi-carousel-list{
-			.react-multi-carousel-track{
-				.react-multi-carousel-item{
-					@apply px-2 lg:px-[0.6rem];
-				}
-			}
+.carousel-product-container{
+	.react-multi-carousel-track{
+		.react-multi-carousel-item{
+			@apply px-2 lg:px-[0.6rem];
 		}
 	}
 }
