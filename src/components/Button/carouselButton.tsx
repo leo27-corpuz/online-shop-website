@@ -19,7 +19,7 @@ const CarouselButton: React.FC<CarouselBtnProps> = ({previous, next, bgColor = '
 					`w-[1rem] lg:w-6 ${!infinite && currentSlide == 0 ? 'text-primaryGrayColor' : 'text-primaryTextColor'}`
 				}/></button>
 				<button onClick={() => next()} className="py-0.5 px-2 lg:px-3 lg:py-2"><FeatherIcon icon="chevron-right" className={
-				`w-[1rem] lg:w-6 ${!infinite && currentSlide == totalItem ? 'text-primaryGrayColor' : 'text-primaryTextColor'}`
+				`w-[1rem] lg:w-6 ${!infinite && currentSlide >= totalItem ? 'text-primaryGrayColor' : 'text-primaryTextColor'}`
 				}/></button>
      </div>
 		</>

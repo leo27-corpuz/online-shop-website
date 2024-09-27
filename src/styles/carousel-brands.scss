@@ -1,0 +1,8 @@
+.carousel-brands-container{
+	.react-multi-carousel-track{
+		@apply py-3;
+		.react-multi-carousel-item{
+			@apply px-2 lg:px-[0.6rem];
+		}
+	}
+}

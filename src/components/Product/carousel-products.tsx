@@ -20,33 +20,56 @@ interface CarouselProductsProps {
 }
 const CarouselProducts: React.FC<CarouselProductsProps> = (props) => {
 	const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 1280 },
-      items: 5,
+		superLargeDesktop: {
+			breakpoint: { max: 4000, min: 1280 },
+			items: 4,
 			partialVisibilityGutter: 10 
-    },
-    desktop: {
-      breakpoint: { max: 1280, min: 1024 },
-      items:3,
+		},
+		desktop: {
+			breakpoint: { max: 1280, min: 1024 },
+			items:3,
 			partialVisibilityGutter: 20 
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 640 },
-      items: 2,
+		},
+		tablet: {
+			breakpoint: { max: 1024, min: 640 },
+			items: 2,
 			partialVisibilityGutter: 40 
-    },
-    mobile: {
-      breakpoint: { max: 640, min: 0 },
-      items: 1,
+		},
+		mobile: {
+			breakpoint: { max: 640, min: 0 },
+			items: 1,
 			partialVisibilityGutter: 60 
-    }
-  }
+		}
+  	}
 	const [products, setProducts] = useState<ProductType[]>([])
 	useEffect(() => {
 		if(props.products.length > 0){
 			setProducts(props.products)
 		}
 	}, [props.products])
+	
+	const [heightImage, setHeightImage] = useState<string>('h-[27rem]');
+	useEffect(() => {
+		function handleResize() {
+			if(window.innerWidth < 1024){
+				setHeightImage('h-[27rem]')
+			}
+			else if(window.innerWidth >= 1024 && window.innerWidth < 1280){
+				setHeightImage('h-[28rem]')
+			}
+			else if(window.innerWidth >= 1280 && window.innerWidth < 1536){
+				setHeightImage('h-[29rem]')
+			}
+			else if(window.innerWidth >= 1536){
+				setHeightImage('h-[30rem]')
+			}
+		}
+		handleResize();
+		window.addEventListener("resize", handleResize);	
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		};
+	}, [])
 	return(
 		<>
 			<Carousel 
@@ -59,6 +82,7 @@ const CarouselProducts: React.FC<CarouselProductsProps> = (props) => {
 				customDot={<CustomDot />}
 				customButtonGroup={<ButtonGroup />}
 				minimumTouchDrag={20}
+				containerClass="carousel-product-container"
 			>
 				{products.map((data, index) => {
 					return(
@@ -71,7 +95,7 @@ const CarouselProducts: React.FC<CarouselProductsProps> = (props) => {
 								price={data.price}
 								id={data.id}
 								url={data.url}
-								height="h-[27rem]"
+								height={heightImage}
 							/>
 						</div>
 					)
@@ -80,24 +104,38 @@ const CarouselProducts: React.FC<CarouselProductsProps> = (props) => {
 		</>
 	)
 }
-const CustomDot: React.FC = ({active, onClick}: any) => {
+const CustomDot: React.FC = ({active, onClick, ...props}: any) => {
+	const { carouselState} = props;
+	const { totalItems, slidesToShow} = carouselState;
   return(
-    createPortal(
-      <button onClick={() => onClick()} className={`${active ? "active-circle" : "inactive-circle"} circles`}></button>,
-      document.getElementById('featured-footer') as HTMLElement
-    )
+   <>
+	 	{
+			slidesToShow < totalItems ?  createPortal(
+				<button onClick={() => onClick()} className={`${active ? "active-circle" : "inactive-circle"} circles`}></button>,
+				document.getElementById('featured-footer') as HTMLElement
+			)
+			:
+			''
+		}
+	 </>
   )
 }
 const ButtonGroup = (props: any) => {
   const { next, previous, carouselState} = props;
 	const { totalItems, currentSlide, slidesToShow} = carouselState;
   return (
-    createPortal(
-      <div className="carousel-button-group border rounded "> 
-        <CarouselButton next={next} previous={previous} infinite={false} currentSlide={currentSlide} totalItem={totalItems - slidesToShow} />
-      </div>,
-      document.getElementById('featured-product') as HTMLElement
-    )
+    <>
+			{
+				slidesToShow < totalItems  ? createPortal(
+					<div className="carousel-button-group border rounded "> 
+						<CarouselButton next={next} previous={previous} infinite={false} currentSlide={currentSlide} totalItem={totalItems - slidesToShow} />
+					</div>,
+					document.getElementById('featured-product') as HTMLElement
+				)
+				:
+				''
+			}
+		</>
   );
 };
 export default CarouselProducts
