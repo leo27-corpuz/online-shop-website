@@ -3,6 +3,6 @@ interface Logo {
 	alt: string
 }
 export const WebsiteLogo: Logo = {
-    url: 'https://placeholderlogo.com/img/placeholder-logo-1.png',
+    url: '/images/logo/150x70.png',
     alt: 'logo'
 }

@@ -2,14 +2,25 @@ interface urlInterface{
 	link: string,
 	title: string
 }
+interface backgroundInterface{
+	mobile: string,
+	tablet: string,
+	laptop: string,
+	desktop: string,
+}
 interface BannerType {
-  image: string;
+	background: backgroundInterface;
   title: string;
   url: urlInterface;
 }
 export const Banner: BannerType[] = [
 	{
-		image: 'https://static.vecteezy.com/system/resources/previews/027/806/971/non_2x/t-shirts-mockup-with-text-space-on-colrful-background-hd-ai-free-photo.jpg',
+		background: {
+			mobile: '/images/banners/400x600.png',
+			tablet: '/images/banners/800x400.png',
+			laptop: '/images/banners/1024x600.png',
+			desktop: '/images/banners/1400x700.png'
+		},
 		title: 'Level up your style with our summer colllections',
 		url: {
 			link: '/shop-tshirts',
@@ -17,7 +28,12 @@ export const Banner: BannerType[] = [
 		},
 	},
 	{
-		image: 'https://png.pngtree.com/thumb_back/fw800/background/20240217/pngtree-t-shirts-new-collection-vibrant-abstract-text-space-image_15627043.jpg',
+		background: {
+			mobile: '/images/banners/400x600.png',
+			tablet: '/images/banners/800x400.png',
+			laptop: '/images/banners/1024x600.png',
+			desktop: '/images/banners/1400x700.png'
+		},
 		title: 'Level up your style with our summer colllections',
 		url: {
 			link: '/shop-tshirts',
@@ -25,7 +41,12 @@ export const Banner: BannerType[] = [
 		},
 	},
 	{
-		image: 'https://valuesdriven.com/cdn/shop/articles/Banner_blogs.jpg?v=1715707047',
+		background: {
+			mobile: '/images/banners/400x600.png',
+			tablet: '/images/banners/800x400.png',
+			laptop: '/images/banners/1024x600.png',
+			desktop: '/images/banners/1400x700.png'
+		},
 		title: 'Level up your style with our summer colllections',
 		url: {
 			link: '/shop-tshirts',
@@ -33,7 +54,12 @@ export const Banner: BannerType[] = [
 		},
 	},
 	{
-		image: 'https://img.freepik.com/premium-photo/sale-50-text-modern-calligraphy-design-print-tshirt-minimalism_1091144-55506.jpg',
+		background: {
+			mobile: '/images/banners/400x600.png',
+			tablet: '/images/banners/800x400.png',
+			laptop: '/images/banners/1024x600.png',
+			desktop: '/images/banners/1400x700.png'
+		},
 		title: 'Level up your style with our summer colllections',
 		url: {
 			link: '/shop-tshirts',
@@ -41,7 +67,12 @@ export const Banner: BannerType[] = [
 		},
 	},
 	{
-		image: 'https://i.ytimg.com/vi/otEkXC9oPkI/maxresdefault.jpg',
+		background: {
+			mobile: '/images/banners/400x600.png',
+			tablet: '/images/banners/800x400.png',
+			laptop: '/images/banners/1024x600.png',
+			desktop: '/images/banners/1400x700.png'
+		},
 		title: 'Level up your style with our summer colllections',
 		url: {
 			link: '/shop-tshirts',

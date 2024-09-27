@@ -1,7 +1,7 @@
 'use client'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import React,  {useState } from "react";
+import React,  { useState } from "react";
 import Link from 'next/link'
 import '../../styles/banner.scss'
 import FeatherIcon from 'feather-icons-react';
@@ -11,9 +11,15 @@ interface urlInterface{
 	link: string,
 	title: string
 }
+interface backgroundInterface{
+	mobile: string,
+	tablet: string,
+	laptop: string,
+	desktop: string,
+}
 interface CarouselInterface
 {
-  image: string, 
+	background: backgroundInterface;
   title: string,
   buttonTitle?: string,
   url: urlInterface,
@@ -63,7 +69,10 @@ const CarouselBanner: React.FC<props> = ({carouselData = []}) => {
             {carouselData.map((data, index) => {
               return <div className="banner-list" key={index}>
                       <div className="banner-background-image">
-                        <img src={data.image} alt="" className="banner-image"/>
+                        <img src={data.background.mobile} alt="" className="banner-image mobile md:hidden"/>
+                        <img src={data.background.tablet} alt="" className="banner-image tablet hidden md:block lg:hidden"/>
+                        <img src={data.background.laptop} alt="" className="banner-image laptop hidden lg:block 2xl:hidden"/>
+                        <img src={data.background.desktop} alt="" className="banner-image desktop hidden 2xl:block"/>
                       </div>
                       <div className="content-container">
                         <div className="title-container">

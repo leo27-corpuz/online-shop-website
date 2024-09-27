@@ -2,45 +2,27 @@
 .carousel-container{
 	@apply h-auto relative lg:rounded-t-3xl lg:rounded-b-3xl;
 	.banner-list{
-		@apply h-60 overflow-hidden;
-		@media (min-width: 540px){
-			@apply h-72;
-		}
-		@media (min-width: 640px){
-			@apply h-96;
-		}
-		@media (min-width: 992px){
-			@apply h-[28rem];
+		@apply h-[600px] overflow-hidden;
+		@media (min-width: 768px){
+			@apply h-[400px];
 		}
 		@media (min-width: 1024px){
-			@apply h-[32rem];
-		}
-		@media (min-width: 1280px){
-			@apply h-[36rem];
+			@apply h-[600px];
 		}
 		@media (min-width: 1536px){
-			@apply h-[42rem];
+			@apply h-[700px];
 		}
 		.banner-background-image{
 			.banner-image{
-				@apply h-60 w-full object-cover pointer-events-none;
-				@media (min-width: 540px){
-					@apply h-72;
-				}
-				@media (min-width: 640px){
-					@apply h-96;
-				}
-				@media (min-width: 992px){
-					@apply h-[28rem];
+				@apply h-[600px] object-cover w-full pointer-events-none;
+				@media (min-width: 768px){
+					@apply h-[400px];
 				}
 				@media (min-width: 1024px){
-					@apply h-[32rem];
-				}
-				@media (min-width: 1280px){
-					@apply h-[36rem];
+					@apply h-[600px];
 				}
 				@media (min-width: 1536px){
-					@apply h-[42rem];
+					@apply h-[700px];
 				}
 			}
 		}

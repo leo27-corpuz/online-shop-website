@@ -8,8 +8,8 @@ interface ProductCardProps {
 	title: string,
 	img: string,
 	isSale?: boolean, 
-	percentSale?: number,
-	price: number,
+	originalPrice?: number | string,
+	price: number | string,
 	id: any,
 	url: string,
 	height: string
@@ -22,14 +22,17 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
 	return(
 		<>
 			<div className={`card-container ${props.height}`}>
-				<div className="container-image">
-					{product?.isSale || <p>Sale</p>}
+				<div className="container-image pointer-events-none relative overflow-hidden">
+					{product?.isSale ? <p className="absolute right-[-29px] top-2 font-mono-regular-semibold w-24 text-center py-[1px] bg-[red] rounded text-white text-sm uppercase rotate-45">Sale</p> : ''}
 					<img className="image" src={product?.img} alt="" />
 				</div>
 				<div className="details-container">
-					<div className="descriptions">
+					<div className="descriptions pointer-events-none">
 						<p className={`text-primaryTextColor text-base ${robotoRegular.className}`}>{product?.title}</p>
-						<p className="text-primaryTextColor text-lg font-mono-regular-semibold">${product?.price} <span className="text-primaryGrayColor text-sm relative top-[-5px]">$85</span></p>
+						<p className="text-primaryTextColor text-lg font-mono-regular-semibold">
+							{product?.price} 
+							{product?.isSale ? <span className="text-primaryGrayColor text-sm relative top-[-5px] ml-[1px]">{product.originalPrice}</span> : ''}
+						</p>
 					</div>
 					<div className="actions">
 						<div>
