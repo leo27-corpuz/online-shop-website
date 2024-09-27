@@ -5,12 +5,13 @@ import React, { useEffect, useState } from 'react';
 import '../../styles/carousel-product.scss'
 import ProductCard from "@/components/Product/product-card";
 import CarouselButton from "@/components/Button/carouselButton";
+import { createPortal } from "react-dom";
 interface ProductType{
 	title: string,
 	img: string,
 	isSale?: boolean, 
-	percentSale?: number,
-	price: number,
+	originalPrice?: number | string,
+	price: number | string,
 	id: any,
 	url: string
 }
@@ -20,22 +21,22 @@ interface CarouselProductsProps {
 const CarouselProducts: React.FC<CarouselProductsProps> = (props) => {
 	const responsive = {
     superLargeDesktop: {
-      breakpoint: { max: 4000, min: 3000 },
+      breakpoint: { max: 4000, min: 1280 },
       items: 5,
-			partialVisibilityGutter: 240 
+			partialVisibilityGutter: 10 
     },
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items:4,
-			partialVisibilityGutter: 180 
+      breakpoint: { max: 1280, min: 1024 },
+      items:3,
+			partialVisibilityGutter: 20 
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 1,
-			partialVisibilityGutter: 60 
+      breakpoint: { max: 1024, min: 640 },
+      items: 2,
+			partialVisibilityGutter: 40 
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
+      breakpoint: { max: 640, min: 0 },
       items: 1,
 			partialVisibilityGutter: 60 
     }
@@ -56,16 +57,17 @@ const CarouselProducts: React.FC<CarouselProductsProps> = (props) => {
 				showDots={true}
 				arrows={false}
 				customDot={<CustomDot />}
-				customButtonGroup={<ButtonGroup  totalItem={products.length}/>}
+				customButtonGroup={<ButtonGroup />}
+				minimumTouchDrag={20}
 			>
 				{products.map((data, index) => {
 					return(
-						<div className={`product-container overflow-hidden`} key={index}>
+						<div className={`product-container overflow-hidden select-none`} key={index}>
 							<ProductCard 
 								title={data.title} 
 								img={data.img} 
-								isSale={data?.isSale} 
-								percentSale={data?.percentSale}  
+								isSale={data.isSale} 
+								originalPrice={data?.originalPrice}  
 								price={data.price}
 								id={data.id}
 								url={data.url}
@@ -80,17 +82,22 @@ const CarouselProducts: React.FC<CarouselProductsProps> = (props) => {
 }
 const CustomDot: React.FC = ({active, onClick}: any) => {
   return(
-    <>
-      <button onClick={() => onClick()} className={`${active ? "active-circle" : "inactive-circle"} circles`}></button>
-    </>
+    createPortal(
+      <button onClick={() => onClick()} className={`${active ? "active-circle" : "inactive-circle"} circles`}></button>,
+      document.getElementById('featured-footer') as HTMLElement
+    )
   )
 }
 const ButtonGroup = (props: any) => {
-  const { next, previous, carouselState } = props;
+  const { next, previous, carouselState} = props;
+	const { totalItems, currentSlide, slidesToShow} = carouselState;
   return (
-    <div className="carousel-button-group absolute z-50 top-2 right-0 border rounded lg:right-6 lg:top-6 "> 
-     <CarouselButton next={next} previous={previous} infinite={false} currentSlide={carouselState.currentSlide} totalItem={props.totalItem}/>
-    </div>
+    createPortal(
+      <div className="carousel-button-group border rounded "> 
+        <CarouselButton next={next} previous={previous} infinite={false} currentSlide={currentSlide} totalItem={totalItems - slidesToShow} />
+      </div>,
+      document.getElementById('featured-product') as HTMLElement
+    )
   );
 };
 export default CarouselProducts

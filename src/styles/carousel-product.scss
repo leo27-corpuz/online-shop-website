@@ -1,23 +1,23 @@
 .top-brands-container{
 	.container{
 		.react-multi-carousel-list{
-			@apply pb-7 pt-16;
 			.react-multi-carousel-track{
 				.react-multi-carousel-item{
-					@apply px-2;
+					@apply px-2 lg:px-[0.6rem];
 				}
 			}
-			.react-multi-carousel-dot-list {
-				.circles{
-					@apply bg-primaryGrayColor w-full h-1 lg:h-2;
-				}
-				.active-circle{
-					@apply relative;
-					&::after{
-						@apply absolute content-[''] left-0 top-0 h-1 lg:h-2 w-full bg-textColorInput;
-					}
-				}
-			}
+		}
+	}
+}
+#featured-footer{
+	@apply flex mt-6;
+	.circles{
+		@apply bg-primaryGrayColor w-full h-1 lg:h-2;
+	}
+	.active-circle{
+		@apply relative;
+		&::after{
+			@apply absolute content-[''] left-0 top-0 h-1 lg:h-2 w-full bg-textColorInput;
 		}
 	}
 }
