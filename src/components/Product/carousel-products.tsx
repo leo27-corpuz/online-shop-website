@@ -22,7 +22,7 @@ const CarouselProducts: React.FC<CarouselProductsProps> = (props) => {
 	const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 1280 },
-      items: 5,
+      items: 4,
 			partialVisibilityGutter: 10 
     },
     desktop: {
@@ -47,6 +47,29 @@ const CarouselProducts: React.FC<CarouselProductsProps> = (props) => {
 			setProducts(props.products)
 		}
 	}, [props.products])
+	
+	const [heightImage, setHeightImage] = useState<string>('h-[27rem]');
+	useEffect(() => {
+		function handleResize() {
+			if(window.innerWidth < 1024){
+				setHeightImage('h-[27rem]')
+			}
+			else if(window.innerWidth >= 1024 && window.innerWidth < 1280){
+				setHeightImage('h-[28rem]')
+			}
+			else if(window.innerWidth >= 1280 && window.innerWidth < 1536){
+				setHeightImage('h-[29rem]')
+			}
+			else if(window.innerWidth >= 1536){
+				setHeightImage('h-[30rem]')
+			}
+		}
+		handleResize();
+		window.addEventListener("resize", handleResize);	
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		};
+	}, [])
 	return(
 		<>
 			<Carousel 
@@ -71,7 +94,7 @@ const CarouselProducts: React.FC<CarouselProductsProps> = (props) => {
 								price={data.price}
 								id={data.id}
 								url={data.url}
-								height="h-[27rem]"
+								height={heightImage}
 							/>
 						</div>
 					)

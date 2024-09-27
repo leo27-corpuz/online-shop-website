@@ -26,19 +26,21 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
 					{product?.isSale ? <p className="absolute right-[-29px] top-2 font-mono-regular-semibold w-24 text-center py-[1px] bg-[red] rounded text-white text-sm uppercase rotate-45">Sale</p> : ''}
 					<img className="image" src={product?.img} alt="" />
 				</div>
-				<div className="details-container">
-					<div className="descriptions pointer-events-none">
-						<p className={`text-primaryTextColor text-base ${robotoRegular.className}`}>{product?.title}</p>
-						<p className="text-primaryTextColor text-lg font-mono-regular-semibold">
-							{product?.price} 
-							{product?.isSale ? <span className="text-primaryGrayColor text-sm relative top-[-5px] ml-[1px]">{product.originalPrice}</span> : ''}
-						</p>
-					</div>
-					<div className="actions">
-						<div>
-							<Link href="/" className="text-primaryTextColor text-base border-b py-1 font-mono-regular-semibold">View Product</Link>
+				<div className="details-container relative">
+					<div className="absolute bottom-0 w-full">
+						<div className="descriptions pointer-events-none">
+							<p className={`text-primaryTextColor text-base ${robotoRegular.className}`}>{product?.title}</p>
+							<p className="text-primaryTextColor text-lg font-mono-regular-semibold">
+								{product?.price} 
+								{product?.isSale ? <span className="text-primaryGrayColor text-sm relative top-[-5px] ml-[1px]">{product.originalPrice}</span> : ''}
+							</p>
 						</div>
-						<button className="add-to-cart-button"><FeatherIcon icon="shopping-cart" className="w-[20px] text-darkCoffee" /></button>
+						<div className="actions">
+							<div>
+								<Link href="/" className="text-primaryTextColor text-base border-b py-1 font-mono-regular-semibold">View Product</Link>
+							</div>
+							<button className="add-to-cart-button"><FeatherIcon icon="shopping-cart" className="w-[20px] text-darkCoffee" /></button>
+						</div>
 					</div>
 				</div>
 			</div>
