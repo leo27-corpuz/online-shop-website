@@ -17,7 +17,7 @@ const BrandUrlCard: React.FC<brandType> = (props) => {
         <>
             <div className="brand-url-card-container px-2 py-3 rounded-xl shadow-3xl select-none">
                 <img src={props.img.url} alt={props.img.alt} className="mx-auto select-none pointer-events-none" />
-                <Link href={props.url} className="select-none">
+                <Link href={props.url} className="select-none" draggable="false">
                     <div className={`text-center mt-2 ${robotoRegularBold.className} text-sm select-none flex justify-center items-center`}>
                         <p>{props.title}</p>
                         <FeatherIcon icon="chevron-right" className="w-4"/>

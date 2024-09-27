@@ -37,7 +37,7 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
 						</div>
 						<div className="actions">
 							<div>
-								<Link href="/" className="text-primaryTextColor text-base border-b py-1 font-mono-regular-semibold">View Product</Link>
+								<Link href="/" className="text-primaryTextColor text-base border-b py-1 font-mono-regular-semibold" draggable="false">View Product</Link>
 							</div>
 							<button className="add-to-cart-button"><FeatherIcon icon="shopping-cart" className="w-[20px] text-darkCoffee" /></button>
 						</div>
