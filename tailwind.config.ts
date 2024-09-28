@@ -13,6 +13,7 @@ const config: Config = {
         foreground: "var(--foreground)",
         darkCoffee: "var(--dark-coffee)",
         lightCoffee: "var(--light-coffee)",
+        lighterCoffe: "var(--lighter-coffee)",
         darkCream: "var(--dark-cream)",
         lightCream: "var(--light-cream)",
         mainBg: "var(--main-bg)",
