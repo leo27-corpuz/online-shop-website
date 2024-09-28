@@ -45,9 +45,6 @@ const CarouselBrands: React.FC<CarouselBrandInterface> = (props) => {
 			setBrands(props.brands)
 		}
 	}, [props.brands])
-    useEffect(() => {
-        console.log(brands)
-    }, [brands])
 	return(
 		<>
 			<Carousel 
