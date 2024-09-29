@@ -1,0 +1,12 @@
+.banner-skeleton-loading{
+    @apply h-[600px] w-full;
+	@media (min-width: 768px){
+		@apply h-[400px];
+	}
+	@media (min-width: 1024px){
+		@apply h-[600px];
+	}
+	@media (min-width: 1536px){
+		@apply h-[700px];
+	}
+}

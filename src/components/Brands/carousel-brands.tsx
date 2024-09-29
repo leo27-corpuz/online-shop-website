@@ -1,9 +1,10 @@
 'use client'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import '@/styles/carousel-brands.scss'
 import BrandUrlCard from "@/components/Brands/brand-url-card";
+import { TopBrandsContext } from "@/contexts/top-brands";
 interface imageInterace {
     url: string,
     alt: string
@@ -13,10 +14,7 @@ interface brandType{
 	title: string,
     url: string
 }
-interface CarouselBrandInterface {
-	brands: brandType[],
-}
-const CarouselBrands: React.FC<CarouselBrandInterface> = (props) => {
+const CarouselBrands: React.FC = () => {
 	const responsive = {
         superLargeDesktop: {
             breakpoint: { max: 4000, min: 1280 },
@@ -39,15 +37,13 @@ const CarouselBrands: React.FC<CarouselBrandInterface> = (props) => {
 			partialVisibilityGutter: 12
         }
     }
+	const contextBrandsData = useContext(TopBrandsContext);
     const [brands, setBrands] = useState<brandType[]>([])
 	useEffect(() => {
-		if(props.brands.length > 0){
-			setBrands(props.brands)
+		if(contextBrandsData.length > 0){
+			setBrands(contextBrandsData)
 		}
-	}, [props.brands])
-    useEffect(() => {
-        console.log(brands)
-    }, [brands])
+	}, [contextBrandsData])
 	return(
 		<>
 			<Carousel 

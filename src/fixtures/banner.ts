@@ -10,8 +10,8 @@ interface backgroundInterface{
 }
 interface BannerType {
 	background: backgroundInterface;
-  title: string;
-  url: urlInterface;
+	title: string;
+	url: urlInterface;
 }
 export const Banner: BannerType[] = [
 	{
