@@ -2,7 +2,7 @@
 'use client'
 import '../../styles/bannerLoading.scss'
 import React from "react"
-import BoxesSkeleton from '@/components/SkeletonLoading/boxesSkeleton';
+import BoxesSkeleton from '@/components/Loading/boxesSkeleton';
 const BannerLoading: React.FC = () => {
     return(
         <>
