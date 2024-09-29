@@ -1,11 +1,12 @@
 'use client'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import React, { useEffect, useState } from 'react';
 import '../../styles/carousel-product.scss'
+import React, { useEffect, useState, useContext } from 'react';
+import { createPortal } from "react-dom";
 import ProductCard from "@/components/Product/product-card";
 import CarouselButton from "@/components/Button/carouselButton";
-import { createPortal } from "react-dom";
+import { FeaturedProductContext } from "@/contexts/featured-product";
 interface ProductType{
 	title: string,
 	img: string,
@@ -15,10 +16,7 @@ interface ProductType{
 	id: any,
 	url: string
 }
-interface CarouselProductsProps {
-	products: ProductType[],
-}
-const CarouselProducts: React.FC<CarouselProductsProps> = (props) => {
+const CarouselProducts: React.FC = () => {
 	const responsive = {
 		superLargeDesktop: {
 			breakpoint: { max: 4000, min: 1280 },
@@ -41,12 +39,13 @@ const CarouselProducts: React.FC<CarouselProductsProps> = (props) => {
 			partialVisibilityGutter: 60 
 		}
   	}
+	const contextFeaturedProduct = useContext(FeaturedProductContext);
 	const [products, setProducts] = useState<ProductType[]>([])
 	useEffect(() => {
-		if(props.products.length > 0){
-			setProducts(props.products)
+		if(contextFeaturedProduct.length > 0){
+			setProducts(contextFeaturedProduct)
 		}
-	}, [props.products])
+	}, [contextFeaturedProduct])
 	
 	const [heightImage, setHeightImage] = useState<string>('h-[27rem]');
 	useEffect(() => {

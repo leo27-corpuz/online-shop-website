@@ -1,33 +1,14 @@
 'use client'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import React,  { useState } from "react";
+import React,  { useState, useContext } from "react";
 import Link from 'next/link'
 import '../../styles/banner.scss'
 import FeatherIcon from 'feather-icons-react';
 import { robotoRegular, robotoRegularBold } from "@/fonts/font";
 import CarouselButton from "@/components/Button/carouselButton";
-interface urlInterface{
-	link: string,
-	title: string
-}
-interface backgroundInterface{
-	mobile: string,
-	tablet: string,
-	laptop: string,
-	desktop: string,
-}
-interface CarouselInterface
-{
-	background: backgroundInterface;
-  title: string,
-  buttonTitle?: string,
-  url: urlInterface,
-}
-interface props {
-  carouselData?: CarouselInterface[],
-}
-const CarouselBanner: React.FC<props> = ({carouselData = []}) => {
+import { BannerContext } from "@/contexts/banner";
+const CarouselBanner: React.FC = () => {
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -47,6 +28,7 @@ const CarouselBanner: React.FC<props> = ({carouselData = []}) => {
       items: 1
     }
   }
+  const carouselData = useContext(BannerContext);
     return(
         <>
           <Carousel

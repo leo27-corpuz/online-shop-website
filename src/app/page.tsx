@@ -1,12 +1,23 @@
 'use client'
-import React, {useEffect, useState} from "react"
-import CarouselBanner from "@/components/Banner/carousel-banner"
-import { Banner } from "@/fixtures/banner"
-import CarouselProducts from "@/components/Product/carousel-products"
-import CarouselBrands from "@/components/Brands/carousel-brands"
+import React, {useEffect, useState, Suspense} from "react"
+import dynamic from 'next/dynamic'
+import BannerLoading from "@/components/SkeletonLoading/BannerLoading";
+import { robotoRegular, robotoRegularBold } from "@/fonts/font";
+const CarouselBanner = dynamic(() => import('@/components/Banner/carousel-banner'), { 
+	loading: () => <BannerLoading />
+})
+const CarouselBrands = dynamic(() => import('@/components/Brands/carousel-brands'), {
+	loading: () => <p>Loading top brands...</p>
+})
+const CarouselProducts = dynamic(() => import('@/components/Product/carousel-products'), {
+	loading: () => <p>Loading featured products...</p>
+})
 import { FeaturedProduct } from "@/fixtures/featured-product"
 import { topBrands } from "@/fixtures/top-brands"
-import { robotoRegular, robotoRegularBold } from "@/fonts/font";
+import { Banner } from "@/fixtures/banner"
+import { BannerContext } from "@/contexts/banner"
+import { TopBrandsContext } from "@/contexts/top-brands"
+import { FeaturedProductContext } from "@/contexts/featured-product";
 const Home: React.FC = () => {
 	//top brands
 	interface imageInterace {
@@ -40,7 +51,9 @@ const Home: React.FC = () => {
     return(
         <>
 			<section className="w-full mx-auto banner-section lg:container lg:px-4">
-				<CarouselBanner carouselData={Banner}/>
+				<BannerContext.Provider value={Banner}>
+					<CarouselBanner />
+				</BannerContext.Provider>
 			</section>
 			<section className="brands-container container w-full mt-16 md:mt-24 px-4 mx-auto">
 				<div className="container mx-auto">
@@ -48,7 +61,9 @@ const Home: React.FC = () => {
 						<h1 className={`text-2xl tracking text-primaryTextColor text-center md:text-3xl lg:text-4xl ${robotoRegularBold.className}`}>Top Brands</h1>
 						<p className={`text-center mt-2 text-sm lg:w-2/4 mx-auto ${robotoRegular.className}`}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
 					</div>
-					<CarouselBrands brands={brands}/>
+					<TopBrandsContext.Provider value={brands}>
+						<CarouselBrands />
+					</TopBrandsContext.Provider>
 				</div>
 			</section>
 			<section className="featured-products-container container w-full mt-16 md:mt-24 px-4 mx-auto">
@@ -56,7 +71,9 @@ const Home: React.FC = () => {
 					<div id="featured-product" className="flex justify-between items-center mb-8 lg:mb-12">
 					<h1 className={`text-2xl tracking text-primaryTextColor md:text-3xl lg:text-4xl ${robotoRegularBold.className}`}>Featured Products</h1>
 					</div>
-					<CarouselProducts products={products}/>
+					<FeaturedProductContext.Provider value={products}>
+						<CarouselProducts/>
+					</FeaturedProductContext.Provider>
 					<div id="featured-footer"></div>
 				</div>
 			</section>
