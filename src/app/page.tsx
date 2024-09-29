@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 import BannerLoading from "@/components/SkeletonLoading/BannerLoading";
 import { robotoRegular, robotoRegularBold } from "@/fonts/font";
 const CarouselBanner = dynamic(() => import('@/components/Banner/carousel-banner'), { 
-	loading: () => <p>Loading top brands...</p>
+	loading: () => <BannerLoading />
 })
 const CarouselBrands = dynamic(() => import('@/components/Brands/carousel-brands'), {
 	loading: () => <p>Loading top brands...</p>
