@@ -5,7 +5,7 @@ const Popular: React.FC = () => {
   console.log(`test ${nonce}`)
     return(
         <>
-          <section className="w-full h-[3000px] container mx-auto px-4">Popular</section>
+          <section className="w-full h-[3000px] container mx-auto px-4 animation-initial-to-fade">Popular</section>
         </>
     ) 
 }
