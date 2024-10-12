@@ -15,7 +15,6 @@ const CarouselProducts = dynamic(() => import('@/components/Product/carousel-pro
 	ssr: true,
 	loading: () => <p>Loading featured products...</p>
 })
-import NewslettterComponents from "@/components/Newsletter/NewsletterComponent";
 import { FeaturedProduct } from "@/fixtures/featured-product"
 import { topBrands } from "@/fixtures/top-brands"
 import { Banner } from "@/fixtures/banner"
@@ -116,10 +115,7 @@ const Home: React.FC = () => {
 					<div id="featured-footer" className="animation-initial-to-fade"></div>
 				</div>
 			</section>
-			<section className="newsletter-container container w-full mt-16 md:mt-24 px-4 mx-auto">
-				<NewslettterComponents />
-			</section>
-			<section className="mb-24 sm:hidden"></section>
+			<section className="h-[700px]"></section>
         </>
     ) 
 }
