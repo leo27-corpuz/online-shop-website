@@ -54,14 +54,14 @@ const Header: React.FC = () => {
 			<header className="header-container w-full fixed top-0 bg-white z-1000">
 				<div className="container py-2 px-4 w-full mx-auto flex justify-between items-center relative">
 					<div className="logo">
-							<Link href="/"><img className="w-auto h-12 object-cover md:w-auto md:h-auto" src={WebsiteLogo.url} alt={WebsiteLogo.alt} /></Link>
+							<Link prefetch={false} href="/"><img className="w-auto h-12 object-cover md:w-auto md:h-auto" src={WebsiteLogo.url} alt={WebsiteLogo.alt} /></Link>
 					</div>
 					<div className={`url-container z-100 fixed right-0 top-0 w-4/5 bg-white h-screen bg-white shadow-3xl transition-all duration-1000 ease-in-out ${menuStatus ? 'translate-x-0' : 'translate-x-full'} sm:w-8/12 lg:relative lg:h-auto lg:w-auto lg:bg-none lg:shadow-none lg:transform-none`}>
 						<ul className="urls relative top-24 left-0 w-full p-6 lg:w-auto lg-h-auto lg:flex lg:top-0 lg:gap-4 lg:gap-6 xl:gap-12">
-							<Link onClick={() => setMenuStatus(false)} href="/" className="hidden sm:block"><li className={`py-4 w-full border-b-[1px] font-mono-regular-semibold transition-all ease-in-out duration-1000 lg:py-2 ${pathname == '/' && 'border-darkCoffee'} hover:border-darkCoffee`}>Home</li></Link>
-							<Link onClick={() => setMenuStatus(false)} href="/popular"><li className={`py-4 w-full border-b-[1px] font-mono-regular-semibold transition-all ease-in-out duration-1000 lg:py-2 ${pathname == '/popular' && 'border-darkCoffee'} hover:border-darkCoffee`}>Popular</li></Link>
-							<Link onClick={() => setMenuStatus(false)} href="/new-arrival"><li className={`py-4 w-full border-b-[1px] font-mono-regular-semibold transition-all ease-in-out duration-1000 lg:py-2 ${pathname == '/new-arrival' && 'border-darkCoffee'} hover:border-darkCoffee`}>New arrival</li></Link>
-							<Link onClick={() => setMenuStatus(false)} href="/brands"><li className={`py-4 w-full border-b-[1px] font-mono-regular-semibold transition-all ease-in-out duration-1000 lg:py-2 ${pathname == '/brands' && 'border-darkCoffee'} hover:border-darkCoffee`}>Brands</li></Link>
+							<Link prefetch={false} onClick={() => setMenuStatus(false)} href="/" className="hidden sm:block"><li className={`py-4 w-full border-b-[1px] font-mono-regular-semibold transition-all ease-in-out duration-1000 lg:py-2 ${pathname == '/' && 'border-darkCoffee'} hover:border-darkCoffee`}>Home</li></Link>
+							<Link prefetch={false} onClick={() => setMenuStatus(false)} href="/popular"><li className={`py-4 w-full border-b-[1px] font-mono-regular-semibold transition-all ease-in-out duration-1000 lg:py-2 ${pathname == '/popular' && 'border-darkCoffee'} hover:border-darkCoffee`}>Popular</li></Link>
+							<Link prefetch={false} onClick={() => setMenuStatus(false)} href="/new-arrival"><li className={`py-4 w-full border-b-[1px] font-mono-regular-semibold transition-all ease-in-out duration-1000 lg:py-2 ${pathname == '/new-arrival' && 'border-darkCoffee'} hover:border-darkCoffee`}>New arrival</li></Link>
+							<Link prefetch={false} onClick={() => setMenuStatus(false)} href="/brands"><li className={`py-4 w-full border-b-[1px] font-mono-regular-semibold transition-all ease-in-out duration-1000 lg:py-2 ${pathname == '/brands' && 'border-darkCoffee'} hover:border-darkCoffee`}>Brands</li></Link>
 						</ul>
 					</div>
 					<div className="right-container flex items-center justify-between">
@@ -81,7 +81,7 @@ const Header: React.FC = () => {
 						</div>
 						<ul className="icons-url-container hidden gap-3 mr-3 sm:flex md:gap-4 lg:mr-0">
 							<li>
-								<Link href="/cart" className={`transition-all duration-500 ease-in-out relative z-0 ${pathname == '/cart' ? 'text-darkCoffee' : 'text-iconColors'} hover:text-darkCoffee`}
+								<Link prefetch={false} href="/cart" className={`transition-all duration-500 ease-in-out relative z-0 ${pathname == '/cart' ? 'text-darkCoffee' : 'text-iconColors'} hover:text-darkCoffee`}
 									onMouseEnter={hoverTooltipe('shopping-cart')}
 									onMouseLeave={leaveTooltipe}
 									onTouchEnd={leaveTooltipe}
@@ -91,7 +91,7 @@ const Header: React.FC = () => {
 								</Link>
 							</li>
 							<li>
-								<Link href="/favorite" className={`transition-all duration-500 ease-in-out relative z-0 ${pathname == '/favorite' ? 'text-darkCoffee' : 'text-iconColors'} hover:text-darkCoffee`}
+								<Link prefetch={false} href="/favorite" className={`transition-all duration-500 ease-in-out relative z-0 ${pathname == '/favorite' ? 'text-darkCoffee' : 'text-iconColors'} hover:text-darkCoffee`}
 									onMouseEnter={hoverTooltipe('heart')}
 									onMouseLeave={leaveTooltipe}
 									onTouchEnd={leaveTooltipe}
@@ -101,7 +101,7 @@ const Header: React.FC = () => {
 								</Link>
 							</li>
 							<li>
-								<Link href="/account" className={`transition-all duration-500 ease-in-out relative z-0 ${pathname == '/account' ? 'text-darkCoffee' : 'text-iconColors'} hover:text-darkCoffee`}
+								<Link prefetch={false} href="/account" className={`transition-all duration-500 ease-in-out relative z-0 ${pathname == '/account' ? 'text-darkCoffee' : 'text-iconColors'} hover:text-darkCoffee`}
 									onMouseEnter={hoverTooltipe('user')}
 									onMouseLeave={leaveTooltipe}
 									onTouchEnd={leaveTooltipe}
@@ -124,22 +124,22 @@ const Header: React.FC = () => {
 				<div className="mobile-navigation-container bg-white fixed bottom-0 left-0 shadow-5x1 rounded-l-3xl rounded-r-3xl w-full py-2 px-4 z-99 sm:hidden">
 					<ul className="icons-url-container flex align-center justify-between gap-3 md:gap-4 w-full relative">
 						<li className={`${pathname == '/' && 'relative top-[-1.5rem] bg-lightCream text-darkCoffee'} rounded-full relative p-3 top-0 transition-all duration-500 ease-in-out`}>
-							<Link href="/">
+							<Link prefetch={false} href="/">
 								<FeatherIcon icon="home" className="w-[1.4rem]"/>
 							</Link>
 						</li>
 						<li className={`${pathname == '/cart' && 'top-[-1.5rem] bg-lightCream text-darkCoffee'} rounded-full relative p-3 top-0 transition-all duration-500 ease-in-out`}>
-							<Link href="/cart">
+							<Link prefetch={false} href="/cart">
 								<FeatherIcon icon="shopping-cart" className="w-[1.4rem]"/>
 							</Link>
 						</li>
 						<li className={`${pathname == '/favorite' && 'top-[-1.5rem] bg-lightCream text-darkCoffee'} rounded-full relative p-3 top-0 transition-all duration-500 ease-in-out`}>
-							<Link href="/favorite">
+							<Link prefetch={false} href="/favorite">
 								<FeatherIcon icon="heart" className="w-[1.4rem]"/>
 							</Link>
 						</li>
 						<li className={`${pathname == '/account' && 'top-[-1.5rem] bg-lightCream text-darkCoffee'} rounded-full relative p-3 top-0 transition-all duration-500 ease-in-out`}>
-							<Link href="/account">
+							<Link prefetch={false} href="/account">
 								<FeatherIcon icon="user" className="w-[1.4rem]"/>
 							</Link>
 						</li>	
