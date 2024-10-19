@@ -1,60 +1,61 @@
 'use client'
-import React, {useEffect, useState } from "react"
-import dynamic from 'next/dynamic'
-import BannerLoading from "@/components/Loading/BannerLoadingSkeleton";
-import { robotoRegular, robotoRegularBold } from "@/fonts/font";
-const CarouselBanner = dynamic(() => import('@/components/Banner/carousel-banner'), { 
-	ssr: true,
-	loading: () => <BannerLoading />
-})
-const CarouselBrands = dynamic(() => import('@/components/Brands/carousel-brands'), {
-	ssr: true,
-	loading: () => <p>Loading top brands...</p>
-})
-const CarouselProducts = dynamic(() => import('@/components/Product/carousel-products'), {
-	ssr: true,
-	loading: () => <p>Loading featured products...</p>
-})
-import NewslettterComponents from "@/components/Newsletter/NewsletterComponent";
-import { FeaturedProduct } from "@/fixtures/featured-product"
-import { topBrands } from "@/fixtures/top-brands"
-import { Banner } from "@/fixtures/banner"
-import { BannerContext } from "@/contexts/banner"
-import { TopBrandsContext } from "@/contexts/top-brands"
-import { FeaturedProductContext } from "@/contexts/featured-product";
+import React from "react"
+// import React, {useEffect, useState } from "react"
+// import dynamic from 'next/dynamic'
+// import BannerLoading from "@/components/Loading/BannerLoadingSkeleton";
+import { robotoRegular } from "@/fonts/font";
+// const CarouselBanner = dynamic(() => import('@/components/Banner/carousel-banner'), { 
+// 	ssr: true,
+// 	loading: () => <BannerLoading />
+// })
+// const CarouselBrands = dynamic(() => import('@/components/Brands/carousel-brands'), {
+// 	ssr: true,
+// 	loading: () => <p>Loading top brands...</p>
+// })
+// const CarouselProducts = dynamic(() => import('@/components/Product/carousel-products'), {
+// 	ssr: true,
+// 	loading: () => <p>Loading featured products...</p>
+// })
+// import NewslettterComponents from "@/components/Newsletter/NewsletterComponent";
+// import { FeaturedProduct } from "@/fixtures/featured-product"
+// import { topBrands } from "@/fixtures/top-brands"
+// import { Banner } from "@/fixtures/banner"
+// import { BannerContext } from "@/contexts/banner"
+// import { TopBrandsContext } from "@/contexts/top-brands"
+// import { FeaturedProductContext } from "@/contexts/featured-product";
 const Home: React.FC = () => {
-	//top brands
-	interface imageInterace {
-		url: string,
-		alt: string
-	}
-	interface brandsInterface {
-		img: imageInterace,
-		title: string
-		url: string
-	}
-	const [brands, setBrands] = useState<brandsInterface[]>([])
-	useEffect(() => {
-		setBrands(topBrands)
-	}, [])
+	// //top brands
+	// interface imageInterace {
+// 		url: string,
+// 		alt: string
+// 	}
+// 	interface brandsInterface {
+// 		img: imageInterace,
+// 		title: string
+// 		url: string
+// 	}
+// 	const [brands, setBrands] = useState<brandsInterface[]>([])
+// 	useEffect(() => {
+// 		setBrands(topBrands)
+// 	}, [])
 
-  //feature products
-  	interface productsInterface{
-		title: string,
-		img: string,
-		isSale?: boolean, 
-		originalPrice?: number | string,
-		price: number | string,
-		id: number | string,
-		url: string
-	}
-	const [products, setProducts] = useState<productsInterface[]>([])
-	useEffect(() => {
-		setProducts(FeaturedProduct)
-	}, [])
+//   //feature products
+//   	interface productsInterface{
+// 		title: string,
+// 		img: string,
+// 		isSale?: boolean, 
+// 		originalPrice?: number | string,
+// 		price: number | string,
+// 		id: number | string,
+// 		url: string
+// 	}
+// 	const [products, setProducts] = useState<productsInterface[]>([])
+// 	useEffect(() => {
+// 		setProducts(FeaturedProduct)
+// 	}, [])
     return(
         <>
-			<section className="w-full mx-auto banner-section lg:container lg:px-4">
+			{/* <section className="w-full mx-auto banner-section lg:container lg:px-4">
 				<BannerContext.Provider value={Banner}>
 					<CarouselBanner />
 				</BannerContext.Provider>
@@ -119,7 +120,8 @@ const Home: React.FC = () => {
 			<section className="newsletter-container container w-full mt-16 md:mt-24 px-4 mx-auto">
 				<NewslettterComponents />
 			</section>
-			<section className="mb-24 sm:hidden"></section>
+			<section className="mb-24 sm:hidden"></section> */}
+			<p className={"text-center mt-2 text-sm lg:w-2/4 mx-auto " + robotoRegular.className }>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
         </>
     ) 
 }
