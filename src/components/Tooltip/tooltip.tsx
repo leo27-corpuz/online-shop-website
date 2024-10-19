@@ -6,7 +6,7 @@ interface TooltipProps {
     widthPx?: string,
     leftPx?: string
     topPx?: string,
-    display?: Boolean
+    display?: boolean
 }
 const Tooltip: React.FC<TooltipProps> = ({titleText = 'default', widthPx = '32px', leftPx = '-20px', topPx = '20px', display = false}) => {
     return(

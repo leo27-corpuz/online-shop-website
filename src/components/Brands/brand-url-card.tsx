@@ -1,7 +1,7 @@
 'use client'
-import { robotoRegular, robotoRegularBold } from "@/fonts/font";
+import { robotoRegularBold } from "@/fonts/font";
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import FeatherIcon from "feather-icons-react";
 interface imageInterace {
     url: string,

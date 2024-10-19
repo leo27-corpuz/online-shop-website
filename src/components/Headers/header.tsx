@@ -2,13 +2,13 @@ import Link from 'next/link'
 import FeatherIcon from 'feather-icons-react';
 import { usePathname } from 'next/navigation'
 import '../../styles/header.scss'
-import React, { useEffect, useState, useRef, FC } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { WebsiteLogo } from '@/fixtures/logo';
 import Tooltip from '@/components/Tooltip/tooltip';
-const Header: React.FC = (props) => {
+const Header: React.FC = () => {
 	const pathname = `/${usePathname().split('/')[1]}`
 	// search open and close
-	const [seachOpen, setSearchOpen] = useState<Boolean>(false)
+	const [seachOpen, setSearchOpen] = useState<boolean>(false)
 	const refSearchInput = useRef<HTMLInputElement>(null);
 	const openSearchRef = useRef<HTMLDivElement>(null)
 	const openSearch = () => {
@@ -36,14 +36,14 @@ const Header: React.FC = (props) => {
 	}
 
 	//toggle menu
-	const [menuStatus, setMenuStatus] = useState<Boolean>(false);
-	const menuToggle = (e: React.MouseEvent) => {
+	const [menuStatus, setMenuStatus] = useState<boolean>(false);
+	const menuToggle = () => {
 		setMenuStatus(!menuStatus)
 	}
 
 	//hover toottip
 	const [toolTip, setToolTip] = useState<string>('')
-	const hoverTooltipe = (value: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
+	const hoverTooltipe = (value: string) => () => {
 		setToolTip(value)
 	}
 	const leaveTooltipe = () => {

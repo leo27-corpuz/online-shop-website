@@ -5,7 +5,7 @@ interface FeaduredProductType {
 	isSale?: boolean, 
 	originalPrice?: number | string,
 	price: number | string,
-	id: any,
+	id: number | string,
 	url: string
 }
 export const FeaturedProductContext = createContext<FeaduredProductType[]>([]);

@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react';
 import FeatherIcon from 'feather-icons-react';
 import Link from 'next/link';
 import '../../styles/product-card.scss'
-import { robotoRegular, robotoRegularBold } from "@/fonts/font";
+import { robotoRegular } from "@/fonts/font";
 interface ProductCardProps {
 	title: string,
 	img: string,
 	isSale?: boolean, 
 	originalPrice?: number | string,
 	price: number | string,
-	id: any,
+	id: number | string,
 	url: string,
 	height: string
 }
