@@ -3,9 +3,9 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import '../../styles/carousel-product.scss'
 import React, { useEffect, useState, useContext } from 'react';
-import { createPortal } from "react-dom";
+// import { createPortal } from "react-dom";
 import ProductCard from "@/components/Product/product-card";
-import CarouselButton from "@/components/Button/carouselButton";
+// import CarouselButton from "@/components/Button/carouselButton";
 import { FeaturedProductContext } from "@/contexts/featured-product";
 interface ProductType{
 	title: string,
@@ -78,8 +78,8 @@ const CarouselProducts: React.FC = () => {
 				draggable={true}
 				showDots={true}
 				arrows={false}
-				customDot={<CustomDot />}
-				customButtonGroup={<ButtonGroup />}
+				// customDot={<CustomDot />}
+				// customButtonGroup={<ButtonGroup />}
 				minimumTouchDrag={20}
 				containerClass="carousel-product-container"
 			>
@@ -103,38 +103,38 @@ const CarouselProducts: React.FC = () => {
 		</>
 	)
 }
-const CustomDot: React.FC = ({active, onClick, ...props}: any) => {
-	const { carouselState} = props;
-	const { totalItems, slidesToShow} = carouselState;
-  return(
-   <>
-	 	{
-			slidesToShow < totalItems ?  createPortal(
-				<button onClick={() => onClick()} className={`${active ? "active-circle" : "inactive-circle"} circles`}></button>,
-				document.getElementById('featured-footer') as HTMLElement
-			)
-			:
-			''
-		}
-	 </>
-  )
-}
-const ButtonGroup = (props: any) => {
-  const { next, previous, carouselState} = props;
-	const { totalItems, currentSlide, slidesToShow} = carouselState;
-  return (
-    <>
-			{
-				slidesToShow < totalItems  ? createPortal(
-					<div className="carousel-button-group border rounded "> 
-						<CarouselButton next={next} previous={previous} infinite={false} currentSlide={currentSlide} totalItem={totalItems - slidesToShow} />
-					</div>,
-					document.getElementById('featured-product') as HTMLElement
-				)
-				:
-				''
-			}
-		</>
-  );
-};
+// const CustomDot: React.FC = ({active, onClick, ...props}: any) => {
+// 	const { carouselState} = props;
+// 	const { totalItems, slidesToShow} = carouselState;
+//   return(
+//    <>
+// 	 	{
+// 			slidesToShow < totalItems ?  createPortal(
+// 				<button onClick={() => onClick()} className={`${active ? "active-circle" : "inactive-circle"} circles`}></button>,
+// 				document.getElementById('featured-footer') as HTMLElement
+// 			)
+// 			:
+// 			''
+// 		}
+// 	 </>
+//   )
+// }
+// const ButtonGroup = (props: any) => {
+//   const { next, previous, carouselState} = props;
+// 	const { totalItems, currentSlide, slidesToShow} = carouselState;
+//   return (
+//     <>
+// 			{
+// 				slidesToShow < totalItems  ? createPortal(
+// 					<div className="carousel-button-group border rounded "> 
+// 						<CarouselButton next={next} previous={previous} infinite={false} currentSlide={currentSlide} totalItem={totalItems - slidesToShow} />
+// 					</div>,
+// 					document.getElementById('featured-product') as HTMLElement
+// 				)
+// 				:
+// 				''
+// 			}
+// 		</>
+//   );
+// };
 export default CarouselProducts
