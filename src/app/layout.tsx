@@ -24,7 +24,7 @@ export default function RootLayout({
   useEffect(() => {
     const handleScroll = (showDiv: NodeListOf<Element>, add: string, remove: string) => {
       showDiv.forEach((div) => {
-        let position = div.getBoundingClientRect();
+        const position = div.getBoundingClientRect();
         if(position.top < window.innerHeight){
           div.classList.add(add)
           div.classList.remove(remove)
