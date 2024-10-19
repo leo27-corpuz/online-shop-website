@@ -75,15 +75,23 @@ const CarouselBanner: React.FC = () => {
         </>
     )
 }
-
-const CustomDot: React.FC = ({active, onClick}: any) => {
+interface CustomDotProps {
+  active?: boolean;
+  onClick?: () => void;
+}
+const CustomDot: React.FC<CustomDotProps> = ({active, onClick}) => {
   return(
     <>
-      <button onClick={() => onClick()} className={`${active ? "active-circle" : "inactive-circle"} circles`}></button>
+      <button onClick={onClick} className={`${active ? "active-circle" : "inactive-circle"} circles`}></button>
     </>
   )
 }
-const ButtonGroup = (props: any) => {
+
+interface ButtonGroupProps{
+  previous?: () => void;
+  next?: () => void;
+}
+const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
   const { next, previous } = props;
   return (
     <div className="carousel-button-group absolute z-50 top-4 right-4 lg:right-6 lg:top-6 "> 

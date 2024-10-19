@@ -1,7 +1,7 @@
 'use client';
 import React from "react"
 import NextTopLoader from 'nextjs-toploader';
-// import Header from "@/components/Headers/header";
+import Header from "@/components/Headers/header";
 import GlobalLoading from "@/components/Loading/GlobalLoading";
 interface PropsClient {
     headersData: React.ReactNode,
@@ -37,7 +37,7 @@ const ClientComponent: React.FC<PropsClient> = ({headersData, isLoaded = false})
 const HeadMain: React.FC<PropsClient> = ({headersData}) => {
     return (
         <>
-            {/* <Header /> */}
+            <Header />
             <main className="mt-16 lg:mt-28 main-container">
                 {headersData}
             </main>
