@@ -121,7 +121,7 @@ const Home: React.FC = () => {
 				<NewslettterComponents />
 			</section>
 			<section className="mb-24 sm:hidden"></section> */}
-			<p className={"text-center mt-2 text-sm lg:w-2/4 mx-auto " + robotoRegular.className }>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+			<p className={"text-center mt-2 text-sm lg:w-2/4 mx-auto " + robotoRegular.className }>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s</p>
         </>
     ) 
 }
