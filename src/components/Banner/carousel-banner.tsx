@@ -1,11 +1,11 @@
 'use client'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import React,  { useState, useContext } from "react";
+import React,  { useContext } from "react";
 import Link from 'next/link'
 import '../../styles/banner.scss'
 import FeatherIcon from 'feather-icons-react';
-import { robotoRegular, robotoRegularBold } from "@/fonts/font";
+import { robotoRegularBold } from "@/fonts/font";
 import CarouselButton from "@/components/Button/carouselButton";
 import { BannerContext } from "@/contexts/banner";
 const CarouselBanner: React.FC = () => {
