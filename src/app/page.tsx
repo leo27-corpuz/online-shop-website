@@ -54,7 +54,7 @@ const Home: React.FC = () => {
 	}, [])
     return(
         <>
-			<section className="w-full mx-auto banner-section lg:container lg:px-4">
+			{/* <section className="w-full mx-auto banner-section lg:container lg:px-4">
 				<BannerContext.Provider value={Banner}>
 					<CarouselBanner />
 				</BannerContext.Provider>
@@ -119,7 +119,9 @@ const Home: React.FC = () => {
 			<section className="newsletter-container container w-full mt-16 md:mt-24 px-4 mx-auto">
 				<NewslettterComponents />
 			</section>
-			<section className="mb-24 sm:hidden"></section>
+			<section className="mb-24 sm:hidden"></section> */}
+
+			<p className={["text-center mt-2 text-sm lg:w-2/4 mx-auto", robotoRegular.className].join(" ")}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
         </>
     ) 
 }
