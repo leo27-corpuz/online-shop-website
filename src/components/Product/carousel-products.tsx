@@ -13,7 +13,7 @@ interface ProductType{
 	isSale?: boolean, 
 	originalPrice?: number | string,
 	price: number | string,
-	id: any,
+	id: number | string,
 	url: string
 }
 const CarouselProducts: React.FC = () => {

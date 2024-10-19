@@ -45,7 +45,7 @@ const Home: React.FC = () => {
 		isSale?: boolean, 
 		originalPrice?: number | string,
 		price: number | string,
-		id: any,
+		id: number | string,
 		url: string
 	}
 	const [products, setProducts] = useState<productsInterface[]>([])
