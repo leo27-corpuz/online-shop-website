@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
  
 export function middleware(request: NextRequest) {
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
-  const isProd = process.env.APP_ENV;
+  // const isProd = process.env.APP_ENV;
   const cspImages = `
     https://placeholderlogo.com/
     https://valuesdriven.com/ 
