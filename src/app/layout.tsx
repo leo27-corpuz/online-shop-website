@@ -5,7 +5,6 @@ import ClientComponent from "./ClientComponent";
 import { usePathname } from 'next/navigation'
 import { WebsiteLogo } from "@/fixtures/logo";
 import { useEffect, useState } from "react";
-import '@splidejs/react-splide/css';
 export default function RootLayout({
   children,
 }: Readonly<{
