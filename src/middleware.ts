@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
  
 export function middleware(request: NextRequest) {
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
+  // const isProd = process.env.APP_ENV;
   const cspImages = `
     https://placeholderlogo.com/
     https://valuesdriven.com/ 
@@ -11,10 +12,12 @@ export function middleware(request: NextRequest) {
     https://i.ytimg.com/
     https://img.freepik.com/premium-photo/
   `
-  // console.log(cspImages)
+  const cspScrit = `
+    https://vercel.live
+  `
   const cspHeader = `
     default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline';
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' ${cspScrit};
     style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data: ${cspImages};
     font-src 'self';
