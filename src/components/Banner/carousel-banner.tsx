@@ -1,5 +1,5 @@
 'use client'
-import Carousel from "react-multi-carousel";
+// import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import React, { useContext } from "react";
 import Link from 'next/link'
