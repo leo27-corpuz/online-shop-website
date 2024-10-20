@@ -15,10 +15,11 @@ interface ProductCardProps {
 	height: string
 }
 const ProductCard: React.FC<ProductCardProps> = (props) => {
-	const [testEnv, setTestEnv] = useState<string | null | undefined>(process.env.API_URL)
+	const [testEnv, setTestEnv] = useState<string | null | undefined>(null)
 	const [product, setProduct] = useState<ProductCardProps|null>(null)
 	useEffect(() => {
 		setProduct(props)
+		setTestEnv(process.env.API_URL)
 	}, [])
 	return(
 		<>
