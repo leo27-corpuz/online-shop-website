@@ -96,6 +96,8 @@ const Home: React.FC = () => {
 						<h1 className={"text-2xl tracking text-primaryTextColor text-center md:text-3xl lg:text-4xl " + robotoRegularBold.className }>Top Brands</h1>
 						<p className={"text-center mt-2 text-sm lg:w-2/4 mx-auto " + robotoRegular.className }>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s</p>
 					</div>
+					<div id="top-brand-btn" className="flex justify-end items-center mb-4 animation-initial-to-fade">
+					</div>
 					<div className="animation-initial-to-fade">
 						<TopBrandsContext.Provider value={brands}>
 							<CarouselBrands />
