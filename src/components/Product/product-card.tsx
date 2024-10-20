@@ -15,6 +15,7 @@ interface ProductCardProps {
 	height: string
 }
 const ProductCard: React.FC<ProductCardProps> = (props) => {
+	const [testEnv, setTestEnv] = useState<string | null | undefined>(process.env.API_URL)
 	const [product, setProduct] = useState<ProductCardProps|null>(null)
 	useEffect(() => {
 		setProduct(props)
@@ -37,7 +38,7 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
 						</div>
 						<div className="actions">
 							<div>
-								<Link href="/" className="text-primaryTextColor text-base border-b py-1 font-mono-regular-semibold" draggable="false">View Product</Link>
+								<Link href={testEnv ?? '/'} className="text-primaryTextColor text-base border-b py-1 font-mono-regular-semibold" draggable="false">View Product</Link>
 							</div>
 							<button className="add-to-cart-button"><FeatherIcon icon="shopping-cart" className="w-[20px] text-darkCoffee" /></button>
 						</div>
