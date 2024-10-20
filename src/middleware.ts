@@ -17,7 +17,7 @@ export function middleware(request: NextRequest) {
   `
   const cspHeader = `
     default-src 'self';
-    script-src 'self' 'unsafe-eval' ${cspScrit};
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' ${cspScrit};
     style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data: ${cspImages};
     font-src 'self';
