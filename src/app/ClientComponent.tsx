@@ -38,7 +38,7 @@ const HeadMain: React.FC<PropsClient> = ({headersData}) => {
     return (
         <>
             <Header />
-            <main className="mt-16 lg:mt-28 main-container">
+            <main className="mt-16 md:mt-[5.2rem] lg:mt-28 main-container">
                 {headersData}
             </main>
         </>
