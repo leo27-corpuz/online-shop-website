@@ -121,6 +121,7 @@ const Home: React.FC = () => {
 			<section className="newsletter-container container w-full mt-16 md:mt-24 px-4 mx-auto">
 				<NewslettterComponents />
 			</section>
+			<p className="text-center">Footer Comming Soon</p>
 			<section className="mb-24 sm:hidden"></section>
         </>
     ) 
