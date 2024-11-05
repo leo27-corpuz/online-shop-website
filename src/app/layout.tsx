@@ -34,8 +34,13 @@ export default function RootLayout({
       })
     }
     const animationFadeTarget: NodeListOf<Element> = document.querySelectorAll('.animation-initial-to-fade');
+    const animateSmallToLarge: NodeListOf<Element> = document.querySelectorAll('.small-to-max');
     handleScroll(animationFadeTarget, 'show-animate-to-fade', 'animation-initial-to-fade')
-    document.addEventListener('scroll', () => handleScroll(animationFadeTarget, 'show-animate-to-fade', 'animation-initial-to-fade'));
+    handleScroll(animateSmallToLarge, 'animate-small-to-max', 'small-to-max')
+    document.addEventListener('scroll', () => {
+      handleScroll(animationFadeTarget, 'show-animate-to-fade', 'animation-initial-to-fade')
+      handleScroll(animateSmallToLarge, 'animate-small-to-max', 'small-to-max')
+    });
     return () => {
       document.removeEventListener('scroll', () => handleScroll)
     }

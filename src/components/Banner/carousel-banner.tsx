@@ -50,7 +50,8 @@ const CarouselBanner: React.FC = () => {
           >
             {carouselData.map((data, index) => {
               return <div className="banner-list" key={index}>
-                      <div className="banner-background-image">
+                      <div className="banner-background-image 
+                      ">
                         <img src={data.background.mobile} alt="" className="banner-image mobile md:hidden"/>
                         <img src={data.background.tablet} alt="" className="banner-image tablet hidden md:block lg:hidden"/>
                         <img src={data.background.laptop} alt="" className="banner-image laptop hidden lg:block 2xl:hidden"/>
@@ -60,7 +61,7 @@ const CarouselBanner: React.FC = () => {
                         <div className="title-container">
                           <h1 className={`text-center text-2xl text-white leading-8 tracking-wider text-shadow-default pointer-events-none sm:leading-snug md:leading-none lg:leading-[1.1] sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl ${robotoRegularBold.className}`}>{data.title}</h1>
                         </div>
-                        <div className="button-container mt-6 ml-auto mr-auto text-center sm:mt-8 lg:mt-12">
+                        <div className="button-container w-fit mt-6 ml-auto mr-auto text-center sm:mt-8 lg:mt-12">
                           <Link href={data.url.link}>
                             <button className="mx-auto py-2 px-4 font-mono-regular-semibold tracking-wide text-sm text-textColorInput border-none rounded lg:rounded-3xl bg-mainBg cursor-pointer flex gap-1 items-center justify-center sm:px-6 md:px-8">
                               <p>{data.url.title}</p>
