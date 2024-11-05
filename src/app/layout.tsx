@@ -5,7 +5,6 @@ import ClientComponent from "./ClientComponent";
 import { usePathname } from 'next/navigation'
 import { WebsiteLogo } from "@/fixtures/logo";
 import { useEffect, useState } from "react";
-import { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
 import { makeStore } from '@/lib/store';
 export default function RootLayout({
