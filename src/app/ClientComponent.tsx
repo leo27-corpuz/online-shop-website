@@ -67,7 +67,7 @@ const HeadMain: React.FC<PropsClient> = ({ headersData}) => {
                 {headersData}
             </main>
             <MainFooter />
-            <section className="sm:hidden" style={{marginBottom: `${marginButtom}px`}}></section>
+            <section className="sm:hidden bg-lightCream" style={{height: `${marginButtom}px`}}></section>
         </>
     )
 }
