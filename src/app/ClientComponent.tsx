@@ -1,13 +1,17 @@
 'use client';
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import NextTopLoader from 'nextjs-toploader';
 import Header from "@/components/Headers/header";
 import GlobalLoading from "@/components/Loading/GlobalLoading";
+import MainFooter from "@/components/Footers/MainFooter";
+import { useAppSelector, useAppDispatch, useAppStore } from '@/lib/hooks';
+import { setMarginbuttom, initialVal } from "@/lib/features/marginButtom";
 interface PropsClient {
     headersData: React.ReactNode,
-    isLoaded?: boolean
+    isLoaded?: boolean,
+
 }
-const ClientComponent: React.FC<PropsClient> = ({headersData, isLoaded = false}) => {
+const ClientComponent: React.FC<PropsClient> = ({ headersData, isLoaded = false }) => {
     return (
         <>
             <NextTopLoader
@@ -26,21 +30,44 @@ const ClientComponent: React.FC<PropsClient> = ({headersData, isLoaded = false})
                 showAtBottom={false}
             />
 
-            { isLoaded ? 
-                <HeadMain headersData={headersData}/>
-            : 
+            {isLoaded ?
+                <HeadMain headersData={headersData}  />
+                :
                 <GlobalLoading />
             }
         </>
     )
 }
-const HeadMain: React.FC<PropsClient> = ({headersData}) => {
+const HeadMain: React.FC<PropsClient> = ({ headersData}) => {
+    const store = useAppStore()
+    const initialized = useRef(false)
+    if (!initialized.current) {
+      store.dispatch(initialVal())
+      initialized.current = true
+    }
+    const marginButtom = useAppSelector(state => state.marginButtom.marginButtom)
+    const dispatch = useAppDispatch()
+    useEffect(() => {
+        function handleResize() {
+            const selectMobileHeader = document.querySelector("#mobile-navigation-container")
+            if(selectMobileHeader){
+                dispatch(setMarginbuttom(selectMobileHeader.clientHeight))
+            }
+        }
+        handleResize()
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, [dispatch])
     return (
         <>
             <Header />
             <main className="mt-16 md:mt-[5.2rem] lg:mt-28 main-container">
                 {headersData}
             </main>
+            <MainFooter />
+            <section className="sm:hidden" style={{marginBottom: `${marginButtom}px`}}></section>
         </>
     )
 }

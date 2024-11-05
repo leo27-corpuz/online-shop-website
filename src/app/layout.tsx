@@ -5,6 +5,9 @@ import ClientComponent from "./ClientComponent";
 import { usePathname } from 'next/navigation'
 import { WebsiteLogo } from "@/fixtures/logo";
 import { useEffect, useState } from "react";
+import { AppProps } from 'next/app';
+import { Provider } from 'react-redux';
+import { makeStore } from '@/lib/store';
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -44,6 +47,7 @@ export default function RootLayout({
       setIsLoaded(true);
     }, 3000)
   }, [])
+  const store = makeStore();
   return (
     <html lang="en" className={`${robotoRegular.variable, robotoRegularSemibold.variable}`} >
       <head>
@@ -51,7 +55,9 @@ export default function RootLayout({
         <title>{title}</title>
       </head>
       <body className='antialiased bg-background'>
-        <ClientComponent headersData={children} isLoaded={isLoaded}/> 
+        <Provider store={store}>
+          <ClientComponent headersData={children} isLoaded={isLoaded}/> 
+        </Provider>
       </body>
     </html>
   );
