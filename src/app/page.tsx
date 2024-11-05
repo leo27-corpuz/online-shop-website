@@ -54,7 +54,7 @@ const Home: React.FC = () => {
 	}, [])
     return(
         <>
-			<section className="w-full mx-auto banner-section lg:container lg:px-4">
+			<section className="w-full mx-auto banner-section lg:container lg:px-4 small-to-max">
 				<BannerContext.Provider value={Banner}>
 					<CarouselBanner />
 				</BannerContext.Provider>
