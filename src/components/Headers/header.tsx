@@ -16,11 +16,11 @@ const Header: React.FC = () => {
 	}
 	useEffect(() => {
 		function handleClickOutside(event: MouseEvent) {
-      if (refSearchInput.current && !refSearchInput.current.contains(event.target as Node) && !openSearchRef.current?.contains(event.target as Node) && seachOpen) {
+			if (refSearchInput.current && !refSearchInput.current.contains(event.target as Node) && !openSearchRef.current?.contains(event.target as Node) && seachOpen) {
 				setSearchOpen(false)
-      }
+			}
 		}
-		document.addEventListener("mousedown", handleClickOutside);	
+		document.addEventListener("mousedown", handleClickOutside);
 		return () => {
 			document.removeEventListener("mousedown", handleClickOutside);
 		};
@@ -49,30 +49,31 @@ const Header: React.FC = () => {
 	const leaveTooltipe = () => {
 		setToolTip('')
 	}
-  return(
+	return (
 		<>
-			<header className="header-container w-full fixed top-0 bg-white z-1000">
+			<header className="header-container w-full fixed top-0 z-1000 bg-white">
 				<div className="container py-2 px-4 w-full mx-auto flex justify-between items-center relative">
 					<div className="logo">
-							<Link prefetch={false} href="/"><img className="w-auto h-12 object-cover md:w-auto md:h-auto" src={WebsiteLogo.url} alt={WebsiteLogo.alt} /></Link>
+						<Link prefetch={false} href="/"><img className="w-auto h-12 object-cover md:w-auto md:h-auto" src={WebsiteLogo.url} alt={WebsiteLogo.alt} /></Link>
 					</div>
 					<div className={`url-container z-100 fixed right-0 top-0 w-4/5 bg-white h-screen bg-white shadow-3xl transition-all duration-1000 ease-in-out ${menuStatus ? 'translate-x-0' : 'translate-x-full'} sm:w-8/12 lg:relative lg:h-auto lg:w-auto lg:bg-none lg:shadow-none lg:transform-none`}>
-						<ul className="urls relative top-24 left-0 w-full p-6 lg:w-auto lg-h-auto lg:flex lg:top-0 lg:gap-4 lg:gap-6 xl:gap-12">
+						<ul className="urls relative top-24 left-0 w-full p-6 lg:w-auto lg-h-auto lg:flex lg:top-0 lg:gap-4 lg:gap-6 xl:gap-12 lg:p-0">
 							<Link prefetch={false} onClick={() => setMenuStatus(false)} href="/" className="hidden sm:block"><li className={`py-4 w-full border-b-[1px] font-mono-regular-semibold transition-all ease-in-out duration-1000 lg:py-2 ${pathname == '/' && 'border-darkCoffee'} hover:border-darkCoffee`}>Home</li></Link>
 							<Link prefetch={false} onClick={() => setMenuStatus(false)} href="/popular"><li className={`py-4 w-full border-b-[1px] font-mono-regular-semibold transition-all ease-in-out duration-1000 lg:py-2 ${pathname == '/popular' && 'border-darkCoffee'} hover:border-darkCoffee`}>Popular</li></Link>
 							<Link prefetch={false} onClick={() => setMenuStatus(false)} href="/new-arrival"><li className={`py-4 w-full border-b-[1px] font-mono-regular-semibold transition-all ease-in-out duration-1000 lg:py-2 ${pathname == '/new-arrival' && 'border-darkCoffee'} hover:border-darkCoffee`}>New arrival</li></Link>
 							<Link prefetch={false} onClick={() => setMenuStatus(false)} href="/brands"><li className={`py-4 w-full border-b-[1px] font-mono-regular-semibold transition-all ease-in-out duration-1000 lg:py-2 ${pathname == '/brands' && 'border-darkCoffee'} hover:border-darkCoffee`}>Brands</li></Link>
 						</ul>
+
 					</div>
 					<div className="right-container flex items-center justify-between">
-						<div className={`search-container absolute z-40 left-0 top-16 transition-all ease-in-out duration-1000 ${seachOpen ?  'opacity-100 pointer-events-auto w-full' : 'opacity-0 w-0 pointer-events-none'} md:top-24 lg:mr-3 lg:relative lg:opacity-100 lg:w-64 lg:top-0 lg:pointer-events-auto lg-w-full px-4 bg-transparent`} ref={refSearchInput}>
+						<div className={`search-container absolute z-40 left-0 top-16 transition-all ease-in-out duration-1000 ${seachOpen ? 'opacity-100 pointer-events-auto w-full' : 'opacity-0 w-0 pointer-events-none'} md:top-24 lg:mr-3 lg:relative lg:opacity-100 lg:w-64 lg:top-0 lg:pointer-events-auto lg-w-full px-4 bg-transparent`} ref={refSearchInput}>
 							<div className="search flex gap-3 w-full relative py-[10px] rounded-2xl bg-white px-4 shadow lg:py-[7px] ld:px-3 lg:shadow-none lg:border-inherit lg:border-[2px] lg:border-inherit">
 								<div>
-									<FeatherIcon icon='search' className="text-textColorInput w-[1.4rem]"/>
+									<FeatherIcon icon='search' className="text-textColorInput w-[1.4rem]" />
 								</div>
-								<input type="text" placeholder="Search" value={search} className="w-full bg-transparent outline-none text-base font-mono-regular text-textColorInput" onChange={inputSearch}/>
+								<input type="text" placeholder="Search" value={search} className="w-full bg-transparent outline-none text-base font-mono-regular text-textColorInput" onChange={inputSearch} />
 								<div onClick={clearInputSearch} className={`${search ? 'block' : 'hidden'}`}>
-									<FeatherIcon icon='x' className="text-iconColors w-[1.2rem] text-darkCoffee cursor-pointer"/>
+									<FeatherIcon icon='x' className="text-iconColors w-[1.2rem] text-darkCoffee cursor-pointer" />
 								</div>
 							</div>
 						</div>
@@ -86,7 +87,7 @@ const Header: React.FC = () => {
 									onMouseLeave={leaveTooltipe}
 									onTouchEnd={leaveTooltipe}
 								>
-									<FeatherIcon icon="shopping-cart" className="w-[1.4rem]"/>
+									<FeatherIcon icon="shopping-cart" className="w-[1.4rem]" />
 									<Tooltip titleText="Shopping Cart" widthPx='10rem' leftPx='-65px' topPx='30px' display={toolTip == 'shopping-cart' ? true : false} />
 								</Link>
 							</li>
@@ -96,8 +97,8 @@ const Header: React.FC = () => {
 									onMouseLeave={leaveTooltipe}
 									onTouchEnd={leaveTooltipe}
 								>
-									<FeatherIcon icon="heart" className="w-[1.4rem]"/>
-									<Tooltip titleText="Heart" widthPx='5rem' leftPx='-28px' topPx='30px' display={toolTip == 'heart' ? true : false}/>
+									<FeatherIcon icon="heart" className="w-[1.4rem]" />
+									<Tooltip titleText="Heart" widthPx='5rem' leftPx='-28px' topPx='30px' display={toolTip == 'heart' ? true : false} />
 								</Link>
 							</li>
 							<li>
@@ -106,8 +107,8 @@ const Header: React.FC = () => {
 									onMouseLeave={leaveTooltipe}
 									onTouchEnd={leaveTooltipe}
 								>
-									<FeatherIcon icon="user" className="w-[1.4rem]"/>
-									<Tooltip titleText="User" widthPx='5rem' leftPx='-28px' topPx='30px' display={toolTip == 'user' ? true : false}/>
+									<FeatherIcon icon="user" className="w-[1.4rem]" />
+									<Tooltip titleText="User" widthPx='5rem' leftPx='-28px' topPx='30px' display={toolTip == 'user' ? true : false} />
 								</Link>
 							</li>
 						</ul>
@@ -121,33 +122,33 @@ const Header: React.FC = () => {
 						</div>
 					</div>
 				</div>
-				<div className="mobile-navigation-container bg-white fixed bottom-0 left-0 shadow-5x1 rounded-l-3xl rounded-r-3xl w-full py-2 px-4 z-99 sm:hidden">
+				<div className="mobile-navigation-container bg-white fixed bottom-0 left-0 shadow-5x1 rounded-t-3xl w-full py-2 px-4 z-99 sm:hidden" id="mobile-navigation-container">
 					<ul className="icons-url-container flex align-center justify-between gap-3 md:gap-4 w-full relative">
 						<li className={`${pathname == '/' && 'relative top-[-1.5rem] bg-lightCream text-darkCoffee'} rounded-full relative p-3 top-0 transition-all duration-500 ease-in-out`}>
 							<Link prefetch={false} href="/">
-								<FeatherIcon icon="home" className="w-[1.4rem]"/>
+								<FeatherIcon icon="home" className="w-[1.4rem]" />
 							</Link>
 						</li>
 						<li className={`${pathname == '/cart' && 'top-[-1.5rem] bg-lightCream text-darkCoffee'} rounded-full relative p-3 top-0 transition-all duration-500 ease-in-out`}>
 							<Link prefetch={false} href="/cart">
-								<FeatherIcon icon="shopping-cart" className="w-[1.4rem]"/>
+								<FeatherIcon icon="shopping-cart" className="w-[1.4rem]" />
 							</Link>
 						</li>
 						<li className={`${pathname == '/favorite' && 'top-[-1.5rem] bg-lightCream text-darkCoffee'} rounded-full relative p-3 top-0 transition-all duration-500 ease-in-out`}>
 							<Link prefetch={false} href="/favorite">
-								<FeatherIcon icon="heart" className="w-[1.4rem]"/>
+								<FeatherIcon icon="heart" className="w-[1.4rem]" />
 							</Link>
 						</li>
 						<li className={`${pathname == '/account' && 'top-[-1.5rem] bg-lightCream text-darkCoffee'} rounded-full relative p-3 top-0 transition-all duration-500 ease-in-out`}>
 							<Link prefetch={false} href="/account">
-								<FeatherIcon icon="user" className="w-[1.4rem]"/>
+								<FeatherIcon icon="user" className="w-[1.4rem]" />
 							</Link>
-						</li>	
+						</li>
 						<li className="relative p-3 top-0">
 							<div className="icon cursor-pointer" onClick={openSearch} ref={openSearchRef}>
 								<FeatherIcon icon='search' className="text-iconColors w-[1.4rem]" />
 							</div>
-						</li>	
+						</li>
 					</ul>
 				</div>
 			</header>
