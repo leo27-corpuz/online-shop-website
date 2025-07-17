@@ -15,9 +15,10 @@ export function middleware(request: NextRequest) {
   const cspScrit = `
     https://vercel.live
   `
+  const isDev = process.env.APP_ENV === 'local'
   const cspHeader = `
     default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' ${cspScrit};
+    script-src 'self' ${!isDev ? `'nonce-${nonce}' 'strict-dynamic'` : `'unsafe-eval' 'unsafe-inline'`} ${cspScrit};
     style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data: ${cspImages};
     font-src 'self';
