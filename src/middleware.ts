@@ -13,7 +13,8 @@ export function middleware(request: NextRequest) {
     https://img.freepik.com/premium-photo/
   `
   const cspScrit = `
-    https://vercel.live
+    https://vercel.live,
+    https://online-shop-website-taupe.vercel.app/
   `
   const isDev = process.env.APP_ENV === 'local'
   const cspHeader = `
